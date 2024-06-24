@@ -6,7 +6,7 @@
 /*   By: eaktimur <eaktimur@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 17:15:55 by eaktimur          #+#    #+#             */
-/*   Updated: 2024/06/21 17:16:49 by eaktimur         ###   ########.fr       */
+/*   Updated: 2024/06/24 16:15:44 by eaktimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,6 @@ void	two_elem_sort(t_l *a)
 		if (first->nbr > second->nbr)
 			s(&a, 'a');
 	}
-	// 	exit_free_list(a);
-	// a = first;
-	// a->next = a->prev;
-	// a->prev = NULL;
-	// a->next->next = NULL;
 	update_indexes(&a, NULL);
 }
 
@@ -65,7 +60,6 @@ void	three_elem_sort(t_l **a)
 		reverse_rotate(a, 'a');
 	if ((*a)->nbr > (*a)->next->nbr)
 		s(a, 'a');
-	// 	exit_free_list(a);
 }
 
 

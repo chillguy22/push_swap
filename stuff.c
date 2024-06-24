@@ -6,18 +6,16 @@
 /*   By: eaktimur <eaktimur@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 17:15:09 by eaktimur          #+#    #+#             */
-/*   Updated: 2024/06/21 17:16:37 by eaktimur         ###   ########.fr       */
+/*   Updated: 2024/06/24 16:15:00 by eaktimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-
 void	handle_input(char **argv, int argc, t_l **a)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 1;
 	while (i < argc)
@@ -78,4 +76,3 @@ t_l	*find_highest(t_l *head)
 	}
 	return (highest_node);
 }
-

@@ -6,11 +6,22 @@
 /*   By: eaktimur <eaktimur@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 17:19:07 by eaktimur          #+#    #+#             */
-/*   Updated: 2024/06/21 17:19:51 by eaktimur         ###   ########.fr       */
+/*   Updated: 2024/06/24 16:23:37 by eaktimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	update_and_execute(t_l **a, t_l **b, t_l *to_push)
+{
+	update_indexes(a, b);
+	update_targets(a, b);
+	to_push = push_cost(a, b);
+	update_median(a);
+	update_median(b);
+	execute_operations(a, b, to_push);
+	push_a(a, b);
+}
 
 void	actual_push_swap(t_l **a, t_l **b)
 {
@@ -29,32 +40,14 @@ void	actual_push_swap(t_l **a, t_l **b)
 			three_elem_sort(a);
 			while (stack_size(*b) > 0)
 			{
-				// update_targets(a, b);
-				// printf("stack size b: %i\n", stack_size(*b));
-				// for (int i = 0; i < stack_size(*b); i++)
-				// 	printf("Target #%i: %i\n", i, (*b)->target_node->nbr);
-				// // print_stack(&b);
-				// break ;
-				// // push_swap(&b, &a);
-				//
-				// next steps: assign a targets to b nodes,calc costs and find cheapest push_a(&a,	&b);
-				update_indexes(a, b);
-				update_targets(a, b);
-				to_push = push_cost(a, b); //
-				update_median(a);
-				update_median(b);
-				execute_operations(a, b, to_push); //
-				push_a(a, b);
+				update_and_execute(a, b, to_push);
 			}
-			// break ;
 		}
 		if (stack_size(*b) == 0)
 			break ;
 	}
 	update_median(a);
 	final_rotate(a);
-	// if (stack_size(*b) == 0 && is_sorted(*a))
-	// 	printf("Sorted");
 }
 
 void	sizebased_operation(t_l **a, t_l **b)
@@ -67,7 +60,6 @@ void	sizebased_operation(t_l **a, t_l **b)
 		three_elem_sort(a);
 	else
 		actual_push_swap(a, b);
-	// point_to_first(a, b);
 }
 
 int	main(int argc, char **argv)

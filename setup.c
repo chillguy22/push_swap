@@ -6,7 +6,7 @@
 /*   By: eaktimur <eaktimur@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 16:59:46 by eaktimur          #+#    #+#             */
-/*   Updated: 2024/06/21 17:00:19 by eaktimur         ###   ########.fr       */
+/*   Updated: 2024/06/24 16:16:05 by eaktimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ t_l	*find_last_node(t_l *a)
 		node = node->next;
 	return (node);
 }
-
-//	stworz kolejnego node do listy
 
 void	populate_a(t_l **a, int n)
 {
@@ -89,4 +87,3 @@ int	is_sign(char c)
 		return (1);
 	return (0);
 }
-

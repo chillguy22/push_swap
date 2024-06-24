@@ -6,7 +6,7 @@
 /*   By: eaktimur <eaktimur@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 17:18:02 by eaktimur          #+#    #+#             */
-/*   Updated: 2024/06/24 16:04:27 by eaktimur         ###   ########.fr       */
+/*   Updated: 2024/06/24 16:14:32 by eaktimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ void	execute_operations1(t_l **a, t_l **b, t_l *to_push, t_l *target)
 			reverse_rotate(a, 'a');
 	}
 }
-
 
 void	execute_operations(t_l **a, t_l **b, t_l *to_push)
 {
