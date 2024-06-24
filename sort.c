@@ -6,7 +6,7 @@
 /*   By: eaktimur <eaktimur@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 17:15:55 by eaktimur          #+#    #+#             */
-/*   Updated: 2024/06/24 16:15:44 by eaktimur         ###   ########.fr       */
+/*   Updated: 2024/06/24 17:13:40 by eaktimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,3 @@ void	three_elem_sort(t_l **a)
 	if ((*a)->nbr > (*a)->next->nbr)
 		s(a, 'a');
 }
-
-

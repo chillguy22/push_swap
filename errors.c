@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: eaktimur <eaktimur@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/21 16:59:10 by eaktimur          #+#    #+#             */
-/*   Updated: 2024/06/21 16:59:32 by eaktimur         ###   ########.fr       */
+/*   Created: 2024/06/24 16:11:42 by ssuchane          #+#    #+#             */
+/*   Updated: 2024/06/24 17:07:56 by eaktimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	exit_free_list(t_l *list)
 	exit(0);
 }
 
-void	exit_error(void) // good
+void	exit_error(void)
 {
 	printf("Error\n");
 	exit(0);

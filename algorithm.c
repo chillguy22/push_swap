@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: eaktimur <eaktimur@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/21 17:18:02 by eaktimur          #+#    #+#             */
-/*   Updated: 2024/06/24 16:14:32 by eaktimur         ###   ########.fr       */
+/*   Created: 2024/06/24 16:11:38 by ssuchane          #+#    #+#             */
+/*   Updated: 2024/06/24 17:14:24 by eaktimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,31 +112,4 @@ int	find_lowest2(t_l **stack)
 		current = current->next;
 	}
 	return (lowest->median);
-}
-
-void	final_rotate(t_l **a)
-{
-	int	index;
-	int	median;
-	int	i;
-
-	index = find_lowest(a);
-	median = find_lowest2(a);
-	i = 0;
-	if (median == -1)
-	{
-		while (i < (stack_size(*a) - index))
-		{
-			reverse_rotate(a, 'a');
-			i++;
-		}
-	}
-	else if (median == 1)
-	{
-		while (i < index)
-		{
-			r(a, 'a');
-			i++;
-		}
-	}
 }

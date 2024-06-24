@@ -1,20 +1,32 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: eaktimur <eaktimur@student.42warsaw.pl>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/06/24 16:11:52 by ssuchane          #+#    #+#              #
+#    Updated: 2024/06/24 17:07:51 by eaktimur         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 C_PRECOMPILE_FLAGS = -c
 C_DEBUG_FLAG = -g
 
-NAME = push_swap
-SRCS = push_swap.c \
-       algorithm.c \
-       errors.c \
-       ft_split_(fix).c \
-       operations.c \
-       push.c \
-       rotate.c \
-       setup.c \
-       sort.c \
-       stuff.c \
-       update.c
+NAME =	push_swap
+SRCS =	algorithm.c \
+    	errors.c \
+		ft_split.c \
+    	handle_input.c \
+    	op_push.c \
+    	op_rotate.c \
+    	op_swap.c \
+		push_swap.c \
+    	setup.c \
+		sort.c \
+    	update.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
@@ -29,11 +41,9 @@ debug: $(LIBFT)
 	$(CC) $(CFLAGS) $(C_DEBUG_FLAG) $(SRCS) -o $(NAME)
 
 clean:
-	$(MAKE) clean -C
 	rm -f $(OBJS)
 
 fclean: clean
-	$(MAKE) fclean -C
 	rm -f $(NAME)
 
 re: fclean all

@@ -5,21 +5,48 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: eaktimur <eaktimur@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/21 17:19:07 by eaktimur          #+#    #+#             */
-/*   Updated: 2024/06/24 16:23:37 by eaktimur         ###   ########.fr       */
+/*   Created: 2024/06/24 16:28:50 by ssuchane          #+#    #+#             */
+/*   Updated: 2024/06/24 17:11:00 by eaktimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	update_and_execute(t_l **a, t_l **b, t_l *to_push)
+void	final_rotate(t_l **a)
+{
+	int	index;
+	int	median;
+	int	i;
+
+	index = find_lowest(a);
+	median = find_lowest2(a);
+	i = 0;
+	if (median == -1)
+	{
+		while (i < (stack_size(*a) - index))
+		{
+			reverse_rotate(a, 'a');
+			i++;
+		}
+	}
+	else if (median == 1)
+	{
+		while (i < index)
+		{
+			r(a, 'a');
+			i++;
+		}
+	}
+}
+
+void	update_and_execute(t_l **a, t_l **b, t_l **to_push)
 {
 	update_indexes(a, b);
 	update_targets(a, b);
-	to_push = push_cost(a, b);
+	*to_push = push_cost(a, b);
 	update_median(a);
 	update_median(b);
-	execute_operations(a, b, to_push);
+	execute_operations(a, b, *to_push);
 	push_a(a, b);
 }
 
@@ -40,7 +67,7 @@ void	actual_push_swap(t_l **a, t_l **b)
 			three_elem_sort(a);
 			while (stack_size(*b) > 0)
 			{
-				update_and_execute(a, b, to_push);
+				update_and_execute(a, b, &to_push);
 			}
 		}
 		if (stack_size(*b) == 0)
@@ -76,16 +103,7 @@ int	main(int argc, char **argv)
 	else if (argc > 2)
 		handle_input(argv, argc, &a);
 	update_indexes(&a, &b);
-	// printf("\nbefore:\n a:\n");
-	// print_stack(&a);
-	// printf("\nb:\n");
-	// print_stack(&b);
 	sizebased_operation(&a, &b);
-	// point_to_first(&a, &b);
-//	printf("\nafter:\n a:\n");
-//	print_stack(&a);
-//	printf("\nb:\n");
-//	print_stack(&b);
 	exit_free_list(a);
 	return (0);
 }
