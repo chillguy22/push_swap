@@ -7,8 +7,8 @@ NAME = push_swap
 SRCS = push_swap.c \
        algorithm.c \
        errors.c \
+       ft_split_(fix).c \
        operations.c \
-       push_swap1.c \
        push.c \
        rotate.c \
        setup.c \
