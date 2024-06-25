@@ -6,7 +6,7 @@
 /*   By: eaktimur <eaktimur@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 16:07:28 by eaktimur          #+#    #+#             */
-/*   Updated: 2024/06/25 12:29:26 by eaktimur         ###   ########.fr       */
+/*   Updated: 2024/06/25 12:31:00 by eaktimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,9 @@ void				exit_error_free(t_l *stack);
 void				free_list(t_l *list);
 
 // ft_split
-void	populate1(int *num_and_flags, t_l **a_list);
-void	populate(char *str, char c, int *num_and_flags, t_l **a_list);
+void				populate1(int *num_and_flags, t_l **a_list);
+void				populate(char *str, char c, int *num_and_flags,
+						t_l **a_list);
 int					check_doubles(t_l *a, int n);
 void				ft_split(char **argv, char c, t_l **a);
 
