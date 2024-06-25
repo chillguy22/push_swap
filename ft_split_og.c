@@ -6,7 +6,7 @@
 /*   By: eaktimur <eaktimur@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 16:11:46 by ssuchane          #+#    #+#             */
-/*   Updated: 2024/06/25 12:28:17 by eaktimur         ###   ########.fr       */
+/*   Updated: 2024/06/25 12:14:10 by eaktimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,68 +28,60 @@ int	check_doubles(t_l *a, int n)
 	return (0);
 }
 
-void	populate1(int *num_and_flags, t_l **a_list)
+void	ft_split(char **argv, char c, t_l **a)
 {
-	if (num_and_flags[1])
-	{
-		if (num_and_flags[2])
-			num_and_flags[0] *= -1;
-		if (check_doubles(*a_list, num_and_flags[0]))
-			exit_error();
-		populate_a(a_list, num_and_flags[0]);
-		num_and_flags[1] = 0;
-		num_and_flags[2] = 0;
-	}
-}
+	t_l		*a_list;
+	char	*str;
+	int		num;
+	int		is_num_started;
+	int		is_negative;
 
-void	populate(char *str, char c, int *num_and_flags, t_l **a_list)
-{
+	a_list = NULL;
+	num = 0;
+	is_num_started = 0;
+	is_negative = 0;
+	str = argv[1];
 	while (*str)
 	{
 		if (*str == c)
-			populate1(num_and_flags, a_list);
-		else if (is_num(*str) || (*str == '-' && !num_and_flags[1]))
 		{
-			if (!num_and_flags[1])
+			if (is_num_started)
 			{
-				num_and_flags[1] = 1;
-				num_and_flags[0] = 0;
+				if (is_negative)
+					num = -num;
+				if (check_doubles(a_list, num))
+					exit_error();
+				populate_a(&a_list, num);
+				is_num_started = 0;
+				is_negative = 0;
+			}
+		}
+		else if (is_num(*str) || (*str == '-' && !is_num_started))
+		{
+			if (!is_num_started)
+			{
+				is_num_started = 1;
+				num = 0;
 				if (*str == '-')
 				{
-					num_and_flags[2] = 1;
+					is_negative = 1;
 					str++;
 					continue ;
 				}
 			}
-			num_and_flags[0] = num_and_flags[0] * 10 + (*str - '0');
+			num = num * 10 + (*str - '0');
 		}
 		else
 			exit_error();
 		str++;
 	}
-}
-
-void	ft_split(char **argv, char c, t_l **a)
-{
-	t_l		*a_list;
-	char	*str;
-	int		num_and_flags[3];
-
-	// int		is_num_started;
-	// int		is_negative;
-	a_list = NULL;
-	num_and_flags[0] = 0;
-	num_and_flags[1] = 0;
-	num_and_flags[2] = 0;
-	str = argv[1];
-	populate(str, c, num_and_flags, &a_list);
-	if (num_and_flags[1])
+	if (is_num_started)
 	{
-		if (num_and_flags[2])
-			num_and_flags[0] *= -1;
-		if (check_doubles(a_list, num_and_flags[0]))
+		if (is_negative)
+			num = -num;
+		if (check_doubles(a_list, num))
 			exit_error();
-		populate_a(&a_list, num_and_flags[0]);
+		populate_a(&a_list, num);
 	}
 	*a = a_list;
 }
