@@ -6,7 +6,7 @@
 /*   By: eaktimur <eaktimur@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 17:15:55 by eaktimur          #+#    #+#             */
-/*   Updated: 2024/06/24 17:13:40 by eaktimur         ###   ########.fr       */
+/*   Updated: 2024/06/25 13:05:22 by eaktimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	two_elem_sort(t_l *a)
 			s(&a, 'a');
 	}
 	update_indexes(&a, NULL);
+	exit_free_list(a);
 }
 
 void	three_elem_sort(t_l **a)

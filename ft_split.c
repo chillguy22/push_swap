@@ -6,7 +6,7 @@
 /*   By: eaktimur <eaktimur@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 16:11:46 by ssuchane          #+#    #+#             */
-/*   Updated: 2024/06/25 12:28:17 by eaktimur         ###   ########.fr       */
+/*   Updated: 2024/06/25 12:32:18 by eaktimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,6 @@ void	ft_split(char **argv, char c, t_l **a)
 	char	*str;
 	int		num_and_flags[3];
 
-	// int		is_num_started;
-	// int		is_negative;
 	a_list = NULL;
 	num_and_flags[0] = 0;
 	num_and_flags[1] = 0;

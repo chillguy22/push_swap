@@ -6,7 +6,7 @@
 /*   By: eaktimur <eaktimur@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 16:28:50 by ssuchane          #+#    #+#             */
-/*   Updated: 2024/06/24 17:11:00 by eaktimur         ###   ########.fr       */
+/*   Updated: 2024/06/25 14:23:02 by eaktimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 void	final_rotate(t_l **a)
 {
-	int	index;
-	int	median;
+	t_l	*highest;
+	t_l	*lowest;
 	int	i;
+	int	index;
 
-	index = find_lowest(a);
-	median = find_lowest2(a);
+	highest = find_highest(*a);
+	lowest = highest->next;
+	index = lowest->index;
 	i = 0;
-	if (median == -1)
+	if (lowest->median == -1)
 	{
 		while (i < (stack_size(*a) - index))
 		{
@@ -29,7 +31,7 @@ void	final_rotate(t_l **a)
 			i++;
 		}
 	}
-	else if (median == 1)
+	else if (lowest->median == 1)
 	{
 		while (i < index)
 		{
@@ -43,7 +45,8 @@ void	update_and_execute(t_l **a, t_l **b, t_l **to_push)
 {
 	update_indexes(a, b);
 	update_targets(a, b);
-	*to_push = push_cost(a, b);
+	calculate_push_costs(a, b);
+	*to_push = push_cost(b);
 	update_median(a);
 	update_median(b);
 	execute_operations(a, b, *to_push);
@@ -74,7 +77,8 @@ void	actual_push_swap(t_l **a, t_l **b)
 			break ;
 	}
 	update_median(a);
-	final_rotate(a);
+	if (!is_sorted(*a))
+		final_rotate(a);
 }
 
 void	sizebased_operation(t_l **a, t_l **b)

@@ -6,7 +6,7 @@
 /*   By: eaktimur <eaktimur@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 16:07:28 by eaktimur          #+#    #+#             */
-/*   Updated: 2024/06/25 12:31:00 by eaktimur         ###   ########.fr       */
+/*   Updated: 2024/06/25 14:14:02 by eaktimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,11 @@ void				s(t_l **stack, char which);
 void				ss(t_l **a, t_l **b);
 
 // algorithm
-t_l					*push_cost(t_l **a_node, t_l **b_node);
+void				calculate_push_costs(t_l **a_node, t_l **b_node);
+t_l					*push_cost(t_l **b_node);
 void				execute_operations1(t_l **a, t_l **b, t_l *to_push,
 						t_l *target);
 void				execute_operations(t_l **a, t_l **b, t_l *to_push);
-int					find_lowest(t_l **stack);
-int					find_lowest2(t_l **stack);
 
 // errors
 void				exit_free_list(t_l *list);
